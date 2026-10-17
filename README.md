@@ -29,10 +29,21 @@ images get a plain-text description of the screen.
 
 ## Guided setup with Claude Code
 This repository includes a Claude Code skill, `mcping-setup-guide`, that walks you through the install and
-helps troubleshoot it. Clone the repository, open the folder in Claude Code, and ask for help installing or
-fixing MCPing. Claude Code finds the skill by itself in `.claude/skills/`. It asks before changing anything,
-never asks you to paste the token into the chat, and does not bypass security policies. The skill is as
-untested as the rest of the project.
+helps troubleshoot it. It asks before changing anything, never asks you to paste the token into the chat,
+and does not bypass security policies. The skill is as untested as the rest of the project.
+
+**Start Claude Code inside the cloned folder.** Claude Code finds the skill in `.claude/skills/` when a
+session starts in the folder:
+
+```bash
+git clone <the URL of this repository>
+cd Public-Intelligence-Node-Gateway
+claude
+```
+
+Then say, for example, "Help me install MCPing", or type `/mcping-setup-guide`. If Claude Code was already
+running somewhere else, or does not offer the skill, restart it from this folder, or tell it:
+**"Read CLAUDE.md and follow .claude/skills/mcping-setup-guide/SKILL.md."**
 
 ## Installers
 `install/install-device.sh` (Linux) and `install/install-windows.ps1` (Windows PC: firmware tools and
