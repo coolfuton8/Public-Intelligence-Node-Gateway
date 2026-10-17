@@ -10,11 +10,17 @@ That includes entering passwords, changing settings and deleting data. The devic
 for another computer, so treat its token like the keys to that computer.
 
 ## Reporting a vulnerability
-Please report problems **privately**. On this repository use the **Security** tab and
-**Report a vulnerability** (GitHub private vulnerability reporting). Do not post details in public
-issues until a fix is available. This is a volunteer, best-effort project with no service levels.
+**There is no private reporting channel and no security response.** This is an experimental,
+testing-only project with no warranty and no support (see [DISCLAIMER.md](DISCLAIMER.md)). The
+maintainers do not promise to read, answer or fix security reports, or to do so within any time.
 
-If you believe the system is being misused, report that the same way.
+- If you find a problem, you are welcome to open a **public issue** for anything that is not
+  sensitive. Do not include working exploits, tokens, certificates, or other people's data.
+- If you need a fix, assume you must make it yourself in your own copy.
+- Assume the software contains flaws you have not found. Do not use it anywhere a security failure
+  would matter.
+
+If you believe the system is being misused, stop using it and do not rely on a report to anyone.
 
 ## Threat model
 **Meant to defend against**
