@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=MCPing Connect
+Comment=Copy the one command that connects another computer's Claude Code to this device
+Exec=/home/mcping/mcping/.venv/bin/python -m mcping.connectgui
+Icon=network-wired
+Terminal=false
+Categories=Utility;

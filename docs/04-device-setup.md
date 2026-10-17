@@ -8,6 +8,23 @@ The device is the Linux computer that runs the server. These steps assume Linux 
 24.04. They use a user called `mcping` and the folder `/home/mcping/mcping`, because the service
 files expect those exact paths. If you want different ones, edit the files under `device/`.
 
+## Installer script (optional)
+`install/install-device.sh` does the steps below for you, and checks that every dependency is present
+before it touches the project. It is **untested on a clean machine**, so read it first and expect to fix
+problems. It asks before each group of changes and shows its defaults. Run it from a terminal, as a normal
+user who can use `sudo`:
+
+```bash
+bash install/install-device.sh --check     # only checks this computer; changes nothing
+bash install/install-device.sh --dry-run   # shows what it would do; changes nothing
+bash install/install-device.sh             # does the installation
+```
+
+Options: `--yes` (accept every default), `--accept-disclaimer`, `--user NAME`, `--dir PATH`. You must
+accept [DISCLAIMER.md](../DISCLAIMER.md) when asked, or pass `--accept-disclaimer`. The script writes a log
+file (its path is printed first) and never puts the token in it. The steps below are the same work done by
+hand, which is also the way to understand or repair an installation.
+
 ## 1. Install Linux
 - Name the computer **`mcping`**, so it is reachable as `mcping.local` on networks that pass mDNS.
 - Create the user **`mcping`**.

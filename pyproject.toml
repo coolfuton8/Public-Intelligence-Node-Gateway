@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcping"
+version = "0.1.0"
+description = "MCP Intelligence Node Gateway: lets an LLM see and drive a computer through HDMI capture and USB HID, with nothing installed on the target."
+requires-python = ">=3.10"
+license = "MIT"
+dependencies = [
+    "mcp>=1.2.0,<2",
+    "pyserial>=3.5",
+    "pillow>=10.0",
+    "cryptography>=42",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+# Screen parser (describe_screen etc.); tesserocr needs apt: tesseract-ocr libtesseract-dev libleptonica-dev
+vision = ["opencv-python-headless", "numpy", "tesserocr"]
+# Flashing the ESP32-S3 from the MCPing device (apt's esptool 4.7 lacks the S3 stub)
+flash = ["esptool>=5"]
+
+[project.scripts]
+mcping-server = "mcping.server:main"
+mcping-cli = "mcping.cli:main"
+mcping-cert = "mcping.tls:main"
+mcping-cert-gui = "mcping.certgui:main"
+mcping-connect = "mcping.connectgui:main"
+mcping-invite = "mcping.invites:main"
+mcping-clients = "mcping.clients:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

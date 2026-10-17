@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=MCPing Certificate
+Comment=View and renew the device's HTTPS certificate
+Exec=/home/mcping/mcping/.venv/bin/mcping-cert-gui
+Icon=security-high
+Terminal=false
+Categories=System;Settings;

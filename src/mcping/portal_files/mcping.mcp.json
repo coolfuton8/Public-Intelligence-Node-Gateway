@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "mcping": {
+      "type": "http",
+      "url": "https://@@ADDRESS@@:@@PORT@@/mcp",
+      "headers": {
+        "Authorization": "Bearer ${MCPING_TOKEN}"
+      }
+    }
+  }
+}

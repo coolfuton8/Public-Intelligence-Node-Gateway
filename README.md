@@ -27,9 +27,14 @@ images get a plain-text description of the screen.
 | [7. Using it](docs/07-using.md) | Tools, screen description, accuracy, limits |
 | [Troubleshooting](docs/troubleshooting.md) | Known issues |
 
+## Installers
+`install/install-device.sh` (Linux) and `install/install-windows.ps1` (Windows PC: firmware tools and
+client setup) are described in [Device setup](docs/04-device-setup.md) and [Firmware](docs/05-firmware.md).
+They are untested on a clean machine.
+
 ## Status
 Experimental. The build instructions have not yet been verified end to end on a fresh machine.
-The source code is not yet published here.
+The source code, firmware sketch, service files and installers are published here, untested on a clean machine.
 
 ## License
 Software: [MIT](LICENSE).

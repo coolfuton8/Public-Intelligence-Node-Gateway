@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=MCPing Monitor
+Comment=Live view of what the MCP is doing: screen frames, clicks and the call log
+Exec=firefox --new-window https://mcping.local:8765/monitor
+Icon=video-display
+Terminal=false
+Categories=Utility;

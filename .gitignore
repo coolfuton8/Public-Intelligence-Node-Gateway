@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+build/
+*.env
+!mcping.env.example
+*.key
+*.crt
+*.pem
+*.log

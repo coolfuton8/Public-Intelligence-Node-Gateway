@@ -1,0 +1,20 @@
+[Unit]
+Description=MCPing MCP server (network endpoint)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=mcping
+Group=mcping
+SupplementaryGroups=dialout video
+EnvironmentFile=/etc/mcping/mcping.env
+Environment=MCPING_TLS_DIR=/var/lib/mcping/tls
+ExecStart=/home/mcping/mcping/.venv/bin/mcping-server --transport http --host 0.0.0.0 --port 8765
+Restart=always
+RestartSec=3
+# Never leave a key or button held if the service stops
+KillSignal=SIGINT
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target

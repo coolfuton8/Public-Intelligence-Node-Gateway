@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=MCPing Setup Pages
+Comment=Web pages that explain how to connect Claude Code, OpenCode and Ollama to this device
+Exec=firefox --new-window https://mcping.local/
+Icon=applications-internet
+Terminal=false
+Categories=Utility;

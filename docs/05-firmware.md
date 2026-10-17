@@ -8,6 +8,20 @@ The sketch `firmware/mcping_hid/mcping_hid.ino` turns an ESP32-S3 board into a U
 absolute-position mouse for the target. It takes line-based text commands from the device over the
 board's UART port.
 
+## From a Windows PC (optional)
+`install/install-windows.ps1` installs the build tools (Python, esptool, arduino-cli and the ESP32 core),
+builds the sketch, can flash a board plugged into the PC, and can connect the PC to a running device
+(see [Connect a client](06-connect.md)). It is **untested on a clean machine**. Check what it will do
+first with:
+
+```powershell
+powershell -File .\install\install-windows.ps1 -CheckOnly
+```
+
+It needs no administrator rights, asks before every group of changes, and does not try to get around a
+policy that restricts PowerShell: if your organisation blocks scripts, ask an administrator or use the
+manual steps below. The steps below are the same work done by hand.
+
 ## Build
 You need [arduino-cli](https://github.com/arduino/arduino-cli) with the ESP32 core. The tested
 core version was 3.3.12, and the sketch uses no extra libraries.

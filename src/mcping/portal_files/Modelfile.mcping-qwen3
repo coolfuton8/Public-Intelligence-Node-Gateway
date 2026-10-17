@@ -1,0 +1,9 @@
+# Ollama model for driving a computer through MCPing.
+#   ollama pull qwen3:8b
+#   ollama create qwen3-mcping -f Modelfile.mcping-qwen3
+#
+# Ollama's default context window (a few thousand tokens) is too small for tool descriptions plus a
+# screen description; tool calls then fail or get cut off. 16384 tokens needs about 2 GB more memory.
+FROM qwen3:8b
+PARAMETER num_ctx 16384
+PARAMETER temperature 0.2
