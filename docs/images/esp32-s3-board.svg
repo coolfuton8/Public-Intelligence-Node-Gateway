@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1130 520" role="img" aria-labelledby="t d">
+  <title id="t">ESP32-S3 development board with two USB-C ports</title>
+  <desc id="d">Top view of an ESP32-S3 development board: antenna end on the left, pin headers along the top and bottom, and two USB-C ports on the right edge. The upper port is the USB-to-UART port and goes to the node. The lower port is the USB OTG port and goes to the target.</desc>
+  <rect width="1130" height="520" rx="14" fill="#ffffff"/>
+  <!-- PCB -->
+  <rect x="130" y="130" width="720" height="270" rx="6" fill="#1c1f22" stroke="#0b0c0d" stroke-width="3"/>
+  <!-- antenna end (bare PCB with trace) -->
+  <rect x="50" y="195" width="100" height="140" fill="#1c1f22" stroke="#0b0c0d" stroke-width="3"/>
+  <path d="M65 215 H125 V245 H85 V275 H125 V305 H85 V320" fill="none" stroke="#b9a04a" stroke-width="5" stroke-linejoin="round"/>
+  <!-- pin headers -->
+  <rect x="150" y="140" width="640" height="26" fill="#2c3136"/>
+  <rect x="150" y="364" width="640" height="26" fill="#2c3136"/>
+  <g fill="#c9b04a">
+    <g id="row"><circle cx="168" cy="153" r="6"/><circle cx="196" cy="153" r="6"/><circle cx="224" cy="153" r="6"/><circle cx="252" cy="153" r="6"/><circle cx="280" cy="153" r="6"/><circle cx="308" cy="153" r="6"/><circle cx="336" cy="153" r="6"/><circle cx="364" cy="153" r="6"/><circle cx="392" cy="153" r="6"/><circle cx="420" cy="153" r="6"/><circle cx="448" cy="153" r="6"/><circle cx="476" cy="153" r="6"/><circle cx="504" cy="153" r="6"/><circle cx="532" cy="153" r="6"/><circle cx="560" cy="153" r="6"/><circle cx="588" cy="153" r="6"/><circle cx="616" cy="153" r="6"/><circle cx="644" cy="153" r="6"/><circle cx="672" cy="153" r="6"/><circle cx="700" cy="153" r="6"/><circle cx="728" cy="153" r="6"/><circle cx="756" cy="153" r="6"/></g>
+    <use href="#row" y="224"/>
+  </g>
+  <!-- module -->
+  <rect x="160" y="180" width="190" height="170" rx="3" fill="#b8bec5" stroke="#7d848c" stroke-width="2"/>
+  <text x="255" y="268" font-family="sans-serif" font-size="17" fill="#3a4047" text-anchor="middle">ESP32-S3</text>
+  <text x="255" y="290" font-family="sans-serif" font-size="14" fill="#3a4047" text-anchor="middle">module</text>
+  <!-- regulator -->
+  <rect x="380" y="200" width="70" height="56" fill="#0e0f10" stroke="#3a3f44"/>
+  <rect x="395" y="182" width="40" height="18" fill="#9aa1a8"/>
+  <!-- USB-serial chip -->
+  <rect x="490" y="200" width="110" height="64" fill="#0e0f10" stroke="#3a3f44"/>
+  <g stroke="#8b9299" stroke-width="3"><path d="M500 194 V200 M520 194 V200 M540 194 V200 M560 194 V200 M580 194 V200 M500 264 V270 M520 264 V270 M540 264 V270 M560 264 V270 M580 264 V270"/></g>
+  <!-- RGB LED -->
+  <rect x="395" y="290" width="56" height="56" rx="4" fill="#e9ecef" stroke="#8b9299" stroke-width="2"/>
+  <circle cx="423" cy="318" r="14" fill="#f8f9fa" stroke="#aeb4ba"/>
+  <!-- buttons -->
+  <rect x="520" y="296" width="52" height="40" rx="5" fill="#d8cdb6" stroke="#8b8168" stroke-width="2"/>
+  <rect x="610" y="296" width="52" height="40" rx="5" fill="#d8cdb6" stroke="#8b8168" stroke-width="2"/>
+  <!-- small parts -->
+  <g fill="#d8c7a0" stroke="#7d6f4f"><rect x="470" y="292" width="16" height="9"/><rect x="470" y="310" width="16" height="9"/><rect x="470" y="328" width="16" height="9"/><rect x="690" y="200" width="16" height="9"/><rect x="690" y="222" width="16" height="9"/></g>
+  <!-- USB-C ports on the right edge -->
+  <g>
+    <rect x="800" y="188" width="84" height="64" rx="12" fill="#cfd4d9" stroke="#6b7480" stroke-width="3"/>
+    <rect x="820" y="210" width="50" height="20" rx="9" fill="#2a2e33"/>
+    <rect x="800" y="278" width="84" height="64" rx="12" fill="#cfd4d9" stroke="#6b7480" stroke-width="3"/>
+    <rect x="820" y="300" width="50" height="20" rx="9" fill="#2a2e33"/>
+  </g>
+  <!-- callouts -->
+  <g stroke="#d6332f" stroke-width="3" fill="#d6332f">
+    <line x1="884" y1="220" x2="925" y2="220"/><circle cx="884" cy="220" r="5"/>
+    <line x1="884" y1="310" x2="925" y2="310"/><circle cx="884" cy="310" r="5"/>
+  </g>
+  <g font-family="sans-serif" fill="#1b1f24">
+    <text x="935" y="214" font-size="19" font-weight="700">UART</text>
+    <text x="935" y="236" font-size="15">to the NODE</text>
+    <text x="935" y="304" font-size="19" font-weight="700">USB</text>
+    <text x="935" y="326" font-size="15">to the TARGET</text>
+  </g>
+  <g font-family="sans-serif" font-size="16" fill="#1b1f24">
+    <text x="90" y="60" font-weight="700">Antenna end</text><line x1="100" y1="70" x2="100" y2="190" stroke="#d6332f" stroke-width="2"/>
+    <text x="400" y="85" font-weight="700">Pin headers</text><line x1="440" y1="95" x2="440" y2="138" stroke="#d6332f" stroke-width="2"/>
+    <text x="423" y="440" text-anchor="middle" font-weight="700">RGB LED</text><line x1="423" y1="394" x2="423" y2="425" stroke="#d6332f" stroke-width="2"/>
+    <text x="591" y="440" text-anchor="middle" font-weight="700">RESET / BOOT</text><line x1="591" y1="394" x2="591" y2="425" stroke="#d6332f" stroke-width="2"/>
+  </g>
+  <text x="565" y="488" font-family="sans-serif" font-size="14" fill="#5f6b7a" text-anchor="middle">Illustration only, not to scale. Parts and port labels vary between boards: check yours has TWO USB-C ports.</text>
+</svg>
