@@ -38,6 +38,21 @@ endpoint security or company policy blocks unsigned scripts.
   on the no-script route.
 - The no-script route has had very little testing.
 
+## Known issue 3: the access token sits in plain text in several places
+
+The setup scripts store the device's access token in plain text so that the client can connect:
+in the client's settings files (for example the Claude user settings and the desktop app's
+configuration), in a ready-made configuration file, and, on Windows, without any restriction on
+who can read those files. While a script runs, the token is also passed on a command line, so
+**other users on the same computer can see it briefly in the process list.**
+
+**What to do**
+- Only run setup on a computer you trust, and not on a shared computer with other users logged in.
+- Treat the token like a password. Do not paste it into chat, tickets or screenshots.
+- If you think it was exposed, revoke that computer's token on the node (or change the master
+  token) and set the computer up again.
+- Remove the configuration files from a computer you are finished with.
+
 ## Seen together
 
 A demonstration on a managed Windows computer failed because of **both** issues at once: the
