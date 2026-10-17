@@ -27,6 +27,13 @@ images get a plain-text description of the screen.
 | [7. Using it](docs/07-using.md) | Tools, screen description, accuracy, limits |
 | [Troubleshooting](docs/troubleshooting.md) | Known issues |
 
+## Guided setup with Claude Code
+This repository includes a Claude Code skill, `mcping-setup-guide`, that walks you through the install and
+helps troubleshoot it. Clone the repository, open the folder in Claude Code, and ask for help installing or
+fixing MCPing. Claude Code finds the skill by itself in `.claude/skills/`. It asks before changing anything,
+never asks you to paste the token into the chat, and does not bypass security policies. The skill is as
+untested as the rest of the project.
+
 ## Installers
 `install/install-device.sh` (Linux) and `install/install-windows.ps1` (Windows PC: firmware tools and
 client setup) are described in [Device setup](docs/04-device-setup.md) and [Firmware](docs/05-firmware.md).
