@@ -8,11 +8,19 @@ The device is the Linux computer that runs the server. These steps assume Linux 
 24.04. They use a user called `mcping` and the folder `/home/mcping/mcping`, because the service
 files expect those exact paths. If you want different ones, edit the files under `device/`.
 
-## Installer script (optional)
+## Installer scripts (optional, UNTESTED)
+> **The installer scripts have not been tested on a clean machine.** Treat them as drafts. They make
+> system changes (packages, a user account, services), so read them before you run them, run `--check`
+> and `--dry-run` first, and be ready to fix problems or finish by hand with the steps below.
+
+| Script | Where it runs | What was actually tested |
+|---|---|---|
+| `install/install-device.sh` | The Linux device | Syntax only. It has **never been run** end to end: no real package install, no service start. |
+| `install/install-windows.ps1` | A Windows PC (firmware tools and client setup; it cannot install the device itself) | Check-only and dry-run modes on one PC. The tool installs, the firmware build and flash, the certificate download and the settings change have **not been run**. |
+
 `install/install-device.sh` does the steps below for you, and checks that every dependency is present
-before it touches the project. It is **untested on a clean machine**, so read it first and expect to fix
-problems. It asks before each group of changes and shows its defaults. Run it from a terminal, as a normal
-user who can use `sudo`:
+before it touches the project. It asks before each group of changes and shows its defaults. Run it from a
+terminal, as a normal user who can use `sudo`:
 
 ```bash
 bash install/install-device.sh --check     # only checks this computer; changes nothing
@@ -22,8 +30,14 @@ bash install/install-device.sh             # does the installation
 
 Options: `--yes` (accept every default), `--accept-disclaimer`, `--user NAME`, `--dir PATH`. You must
 accept [DISCLAIMER.md](../DISCLAIMER.md) when asked, or pass `--accept-disclaimer`. The script writes a log
-file (its path is printed first) and never puts the token in it. The steps below are the same work done by
-hand, which is also the way to understand or repair an installation.
+file (its path is printed first) and never puts the token in it.
+
+**It creates one account.** If the service user (default `mcping`) does not exist, it is created with no
+password, so nobody can log in as it. The user is added to the `dialout` and `video` groups. No sudo entry
+or SSH key is created. The Windows script creates no accounts.
+
+The steps below are the same work done by hand, which is also the way to understand or repair an
+installation. They are also untested (see the note at the top of this page).
 
 ## 1. Install Linux
 - Name the computer **`mcping`**, so it is reachable as `mcping.local` on networks that pass mDNS.
