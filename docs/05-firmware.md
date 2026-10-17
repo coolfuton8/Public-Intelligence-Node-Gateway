@@ -5,7 +5,7 @@
 > yourself.
 
 The sketch `firmware/mcping_hid/mcping_hid.ino` turns an ESP32-S3 board into a USB keyboard and an
-absolute-position mouse for the target. It takes line-based text commands from the node over the
+absolute-position mouse for the target. It takes line-based text commands from the device over the
 board's UART port.
 
 ## Build
@@ -26,7 +26,7 @@ arduino-cli compile --fqbn "esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=defaul
 - Some boards have the RGB LED on pin 38 instead of 48. Add `-DLED_PIN=38` through the compiler flags,
   or change `LED_PIN` in the sketch.
 
-## Flash from the node
+## Flash from the device
 Use the board's **UART** port. Stop the service first, because it holds the serial port.
 
 ```bash
@@ -45,11 +45,11 @@ repository version of esptool is too old for the S3 chip. Use the one installed 
 With the service stopped: `~/mcping/.venv/bin/mcping-cli ping` should answer. Then plug the board's
 native USB port into the target and watch the LED (see [Build](03-build.md)).
 
-The node opens the serial port without toggling the DTR and RTS lines. On some USB-serial boards
+The device opens the serial port without toggling the DTR and RTS lines. On some USB-serial boards
 those lines are wired to reset, so toggling them restarts the board every time the port opens.
 
 ## Serial protocol (for developers)
-115200 baud, 8N1. The node sends one command per line and the board answers with one line,
+115200 baud, 8N1. The device sends one command per line and the board answers with one line,
 `OK [data]` or `ERR <reason>`. On boot it prints `READY mcping-hid <version>` once.
 
 | Command | Meaning |

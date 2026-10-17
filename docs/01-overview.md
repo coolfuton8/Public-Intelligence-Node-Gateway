@@ -5,20 +5,20 @@
 ## What it is
 
 The Public Intelligence Node Gateway lets a person, or an AI model, **see and operate another
-computer with nothing installed on it**. A small Linux computer, the *node*, sits between you and
+computer with nothing installed on it**. A small Linux computer, the *MCPing device*, sits between you and
 the *target*:
 
 - **Seeing:** an HDMI capture card takes the target's video. Its loop-out passes the picture on to a
   monitor, so a person can watch what the AI sees.
 - **Typing and clicking:** a microcontroller (an ESP32-S3 board) plugs into the target's USB port and
   appears as an ordinary keyboard and mouse.
-- **The node:** runs the software that captures frames, drives the microcontroller, and offers all of
+- **The device:** runs the software that captures frames, drives the microcontroller, and offers all of
   it as an [MCP](https://modelcontextprotocol.io) server over HTTPS with a token.
 - **Text-only models:** a model that cannot read images gets a plain-text description of the screen,
   made without any AI (OpenCV plus Tesseract OCR).
 
 ```
- MCP client (an AI app) ──HTTPS + token──> NODE (Linux) ──USB──> capture card <── HDMI ── TARGET
+ MCP client (an AI app) ──HTTPS + token──> MCPing (Linux) ──USB──> capture card <── HDMI ── TARGET
                                              │                                     │
                                              └──USB (serial)──> ESP32-S3 ──USB────┘ (keyboard + mouse)
                                                          monitor <── loop-out ── capture card
@@ -36,7 +36,7 @@ testing machines, accessibility, and research. See the acceptable use rules in
 - Reading text is imperfect. Small, dark or low-contrast text is often misread. A model should check
   important details with a screenshot or zoom.
 - Typing assumes a US keyboard layout on the target.
-- Only one client can drive the node at a time.
+- Only one client can drive the device at a time.
 - The software has been tested on one Linux target and one Windows-style test fixture. Behaviour on
   other systems, and in a BIOS, is unknown.
 
@@ -51,6 +51,6 @@ PiKVM, JetKVM and similar network KVMs. This project differs in that the client 
 model and in the text description of the screen.
 
 ## Reading order
-1. [Parts](02-parts.md) 2. [Build](03-build.md) 3. [Node setup](04-node-setup.md)
+1. [Parts](02-parts.md) 2. [Build](03-build.md) 3. [Device setup](04-device-setup.md)
 4. [Firmware](05-firmware.md) 5. [Connect a client](06-connect.md) 6. [Using it](07-using.md)
 7. [Troubleshooting](troubleshooting.md) 8. [SECURITY.md](../SECURITY.md)

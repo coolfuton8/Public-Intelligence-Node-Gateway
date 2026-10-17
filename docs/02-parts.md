@@ -9,10 +9,10 @@ Only these have been used with this software. Anything else is untested.
 
 | Part | What to look for | Notes |
 |---|---|---|
-| **Node computer** | A Linux computer (laptop, desktop or any other machine) that runs Linux Mint 22.x or Ubuntu 24.04 on x86-64 or ARM64, with at least 3 USB ports (one USB 3), wired Ethernet, Wi-Fi, 4 GB RAM and 32 GB storage. | Best suited to a computer that is easy to carry to the destination with little effort. |
-| **Microcontroller board** | ESP32-S3 development board with **two USB-C ports**, such as an ESP32-S3-DevKitC-1 (N16R8 tested). | One port is a USB-serial chip (talks to the node and powers the board). The other is the chip's native USB (goes to the target). A board with only one port will not work. |
+| **MCPing device** | A Linux computer (laptop, desktop or any other machine) that runs Linux Mint 22.x or Ubuntu 24.04 on x86-64 or ARM64, with at least 3 USB ports (one USB 3), wired Ethernet, Wi-Fi, 4 GB RAM and 32 GB storage. | Best suited to a computer that is easy to carry to the destination with little effort. |
+| **Microcontroller board** | ESP32-S3 development board with **two USB-C ports**, such as an ESP32-S3-DevKitC-1 (N16R8 tested). | One port is a USB-serial chip (talks to the device and powers the board). The other is the chip's native USB (goes to the target). A board with only one port will not work. |
 | **HDMI capture card** | USB 3 capture card with an **HDMI loop-out** that shows up as a standard camera (UVC). An MS2130-based card was tested. | Other chips need their own brightness and contrast values (see [Build](03-build.md)). |
-| **Cables** | 2 HDMI cables, 2 USB-C cables (a data cable from the node to the ESP32, and one from the ESP32 to the target), and a USB cable for the capture card. | Use real data cables, not charge-only. |
+| **Cables** | 2 HDMI cables, 2 USB-C cables (a data cable from the device to the ESP32, and one from the ESP32 to the target), and a USB cable for the capture card. | Use real data cables, not charge-only. |
 | **Monitor** (optional) | Any HDMI monitor. | Plugs into the capture card's loop-out so a person sees the same picture. |
 
 ## What to look for
@@ -27,27 +27,27 @@ photo with every part labelled is in the maker's
 (an example of the right kind of board, not an endorsement). On that board the two ports are
 labelled **USB-to-UART** and **USB OTG**:
 
-![Drawing of an ESP32-S3 board with two USB-C ports: UART goes to the node, USB goes to the target](images/esp32-s3-board.svg)
+![Drawing of an ESP32-S3 board with two USB-C ports: UART goes to the device, USB goes to the target](images/esp32-s3-board.svg)
 
 | This guide calls it | Some boards label it | It connects to |
 |---|---|---|
-| the **UART** port | USB-to-UART, COM | the **node** (commands and power) |
+| the **UART** port | USB-to-UART, COM | the **device** (commands and power) |
 | the **USB** port | USB OTG, USB | the **target** (keyboard and mouse) |
 
-**HDMI capture card: it needs a loop-out** as well as the HDMI input, a USB connection to the node,
+**HDMI capture card: it needs a loop-out** as well as the HDMI input, a USB connection to the device,
 and it must appear as a standard camera (UVC).
 
 ![Drawing of a USB HDMI capture card with HDMI IN, HDMI OUT (loop-out) and USB 3.0](images/hdmi-capture-card.svg)
 
-**Node computer: three or more USB ports, one of them USB 3.**
+**MCPing device: three or more USB ports, one of them USB 3.**
 
 
-## Node computer notes
+## MCPing device notes
 - **Wired Ethernet is strongly recommended.** Use Wi-Fi only if you have to.
 - If a computer's Wi-Fi card repeatedly disappears from the system, treat that as suspect hardware
   and use a wired connection or a different adapter, rather than tuning around it.
 - Use the power adapter that came with the computer.
-- Disable sleep and make the power button harmless, because a node that suspends drops the target.
+- Disable sleep and make the power button harmless, because a device that suspends drops the target.
 
 ## Target computer
 Needs a video output you can plug into the capture card and a USB port for the ESP32. The ESP32

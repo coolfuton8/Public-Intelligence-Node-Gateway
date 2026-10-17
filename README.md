@@ -21,7 +21,7 @@ images get a plain-text description of the screen.
 | [1. Overview](docs/01-overview.md) | What it is, what it cannot do |
 | [2. Parts](docs/02-parts.md) | What to buy |
 | [3. Build](docs/03-build.md) | Cabling and first checks |
-| [4. Node setup](docs/04-node-setup.md) | Linux, packages, services, token, certificate |
+| [4. Device setup](docs/04-device-setup.md) | Linux, packages, services, token, certificate |
 | [5. Firmware](docs/05-firmware.md) | Build and flash the ESP32-S3 |
 | [6. Connect a client](docs/06-connect.md) | Certificates, invites, tokens, client setup |
 | [7. Using it](docs/07-using.md) | Tools, screen description, accuracy, limits |

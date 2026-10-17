@@ -5,19 +5,19 @@
 
 ## Known issue 1: the name `mcping.local` does not resolve
 
-The node announces itself as `mcping.local` using multicast DNS (mDNS). Many networks do not
+The device announces itself as `mcping.local` using multicast DNS (mDNS). Many networks do not
 pass it, including guest and corporate Wi-Fi, networks with client isolation, VPNs, and
 computers managed by a security policy. When the name does not resolve, clients cannot find
-the node, and setup scripts, invite links, the live monitor and the MCP connection all fail.
+the device, and setup scripts, invite links, the live monitor and the MCP connection all fail.
 
 **What to do**
-- Use the node's **IP address** instead of the name. Find it on the node (`ip -br a`) or in
+- Use the device's **IP address** instead of the name. Find it on the device (`ip -br a`) or in
   your router's client list.
-- Give the node a **fixed address** (a DHCP reservation in the router) so the address does not
+- Give the device a **fixed address** (a DHCP reservation in the router) so the address does not
   change.
 - Make every client use the same address you used to reach the setup page.
-- If you move the node to another network, update the address in each client.
-- Do not expose the node to the internet to get around this. Use a VPN instead.
+- If you move the device to another network, update the address in each client.
+- Do not expose the device to the internet to get around this. Use a VPN instead.
 
 ## Known issue 2: the system assumes you may run scripts
 
@@ -49,7 +49,7 @@ who can read those files. While a script runs, the token is also passed on a com
 **What to do**
 - Only run setup on a computer you trust, and not on a shared computer with other users logged in.
 - Treat the token like a password. Do not paste it into chat, tickets or screenshots.
-- If you think it was exposed, revoke that computer's token on the node (or change the master
+- If you think it was exposed, revoke that computer's token on the device (or change the master
   token) and set the computer up again.
 - Remove the configuration files from a computer you are finished with.
 
@@ -62,5 +62,5 @@ script. If a first attempt fails, check name resolution and script permissions f
 ## Other things to check
 - The certificate is trusted only after the client is restarted with the environment variable
   set; otherwise connections fail with a certificate error.
-- Only one controller should drive the node at a time.
+- Only one controller should drive the device at a time.
 - Typed text, including passwords, can appear in the live monitor.

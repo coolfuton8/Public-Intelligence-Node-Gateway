@@ -3,14 +3,14 @@
   <desc id="d">The MCPing laptop has the capture card on a USB 3.0 port and the ESP32 board's UART port on another USB port, plus Ethernet to the network. The target computer's HDMI output goes to the capture card's HDMI input. The capture card's HDMI output goes to an optional monitor. The ESP32 board's USB port goes to a USB port on the target.</desc>
   <rect width="1200" height="760" rx="14" fill="#ffffff"/>
 
-  <!-- ===== NODE laptop ===== -->
+  <!-- ===== DEVICE laptop ===== -->
   <rect x="60" y="200" width="260" height="170" rx="9" fill="#3a4350" stroke="#1f252d" stroke-width="3"/>
   <rect x="72" y="212" width="236" height="146" fill="#9db3c8"/>
   <text x="190" y="272" font-family="sans-serif" font-size="22" font-weight="700" fill="#1b1f24" text-anchor="middle">MCPing</text>
   <text x="190" y="298" font-family="sans-serif" font-size="14" fill="#1b1f24" text-anchor="middle">Linux laptop or desktop</text>
   <text x="190" y="320" font-family="sans-serif" font-size="14" fill="#1b1f24" text-anchor="middle">runs the MCP server</text>
   <path d="M30 370 H350 L336 424 H44 Z" fill="#c9ced3" stroke="#6b7480" stroke-width="3" stroke-linejoin="round"/>
-  <!-- ports on the node (right edge) -->
+  <!-- ports on the device (right edge) -->
   <rect x="346" y="378" width="18" height="12" rx="2" fill="#2f6fd0" stroke="#16191c" stroke-width="2"/>
   <rect x="340" y="402" width="18" height="12" rx="2" fill="#aab0b6" stroke="#16191c" stroke-width="2"/>
   <!-- Ethernet port (left edge) -->
@@ -62,9 +62,9 @@
 
   <!-- ===== CABLES ===== -->
   <g fill="none" stroke-width="7" stroke-linecap="round">
-    <!-- capture card USB 3.0 -> node USB 3.0 port -->
+    <!-- capture card USB 3.0 -> device USB 3.0 port -->
     <path d="M508 157 C 440 157, 420 384, 364 384" stroke="#2f6fd0"/>
-    <!-- ESP32 UART port -> node USB port -->
+    <!-- ESP32 UART port -> device USB port -->
     <path d="M566 445 C 480 445, 430 408, 358 408" stroke="#2e9e5b"/>
     <!-- target HDMI out -> capture card HDMI IN -->
     <path d="M882 562 C 800 562, 790 175, 724 175" stroke="#1b1f24"/>
@@ -72,7 +72,7 @@
     <path d="M724 139 C 800 139, 810 141, 884 141" stroke="#6b7480"/>
     <!-- ESP32 USB port -> target USB port -->
     <path d="M566 479 C 520 640, 800 660, 888 582" stroke="#e07b00"/>
-    <!-- Ethernet node -> router -->
+    <!-- Ethernet device -> router -->
     <path d="M26 401 C -10 480, 40 560, 120 610" stroke="#d4a017"/>
   </g>
 

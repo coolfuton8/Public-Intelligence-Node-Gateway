@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1130 520" role="img" aria-labelledby="t d">
   <title id="t">ESP32-S3 development board with two USB-C ports</title>
-  <desc id="d">Top view of an ESP32-S3 development board: antenna end on the left, pin headers along the top and bottom, and two USB-C ports on the right edge. The upper port is the USB-to-UART port and goes to the node. The lower port is the USB OTG port and goes to the target.</desc>
+  <desc id="d">Top view of an ESP32-S3 development board: antenna end on the left, pin headers along the top and bottom, and two USB-C ports on the right edge. The upper port is the USB-to-UART port and goes to the device. The lower port is the USB OTG port and goes to the target.</desc>
   <rect width="1130" height="520" rx="14" fill="#ffffff"/>
   <!-- PCB -->
   <rect x="130" y="130" width="720" height="270" rx="6" fill="#1c1f22" stroke="#0b0c0d" stroke-width="3"/>
@@ -46,7 +46,7 @@
   </g>
   <g font-family="sans-serif" fill="#1b1f24">
     <text x="935" y="214" font-size="19" font-weight="700">UART</text>
-    <text x="935" y="236" font-size="15">to the NODE</text>
+    <text x="935" y="236" font-size="15">to the MCPing device</text>
     <text x="935" y="304" font-size="19" font-weight="700">USB</text>
     <text x="935" y="326" font-size="15">to the TARGET</text>
   </g>

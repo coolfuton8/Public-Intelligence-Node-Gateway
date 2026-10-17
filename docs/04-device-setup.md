@@ -1,12 +1,12 @@
-# 4. Node setup
+# 4. Device setup
 
 > **Non-production, testing only, no warranty.** Read [DISCLAIMER.md](../DISCLAIMER.md) first.
 > **Not yet verified end to end on a fresh machine.** Commands are written from a working setup but
 > have not been replayed from this page. Treat every step as untested until you have proved it.
 
-The node is the Linux computer that runs the server. These steps assume Linux Mint 22.x or Ubuntu
+The device is the Linux computer that runs the server. These steps assume Linux Mint 22.x or Ubuntu
 24.04. They use a user called `mcping` and the folder `/home/mcping/mcping`, because the service
-files expect those exact paths. If you want different ones, edit the files under `node/`.
+files expect those exact paths. If you want different ones, edit the files under `device/`.
 
 ## 1. Install Linux
 - Name the computer **`mcping`**, so it is reachable as `mcping.local` on networks that pass mDNS.
@@ -16,10 +16,10 @@ files expect those exact paths. If you want different ones, edit the files under
 ```bash
 sudo apt update && sudo apt full-upgrade -y
 sudo apt install -y openssh-server
-ip -br a                       # note the node's address
+ip -br a                       # note the device's address
 ```
 
-Give the node a **fixed address** in your router (a DHCP reservation). Many networks do not resolve
+Give the device a **fixed address** in your router (a DHCP reservation). Many networks do not resolve
 `mcping.local`; see [Troubleshooting](troubleshooting.md).
 
 ## 2. Packages and permissions
@@ -47,12 +47,12 @@ python3 -m venv .venv
 `vision` adds OpenCV, NumPy and Tesseract (the screen description). `flash` adds the tool that
 programs the ESP32 (the version in the Linux package repositories is too old for the S3 chip).
 
-## 4. Keep the node awake
+## 4. Keep the device awake
 ```bash
-sudo install -D -m 644 node/etc/systemd/logind.conf.d/mcping.conf /etc/systemd/logind.conf.d/mcping.conf
+sudo install -D -m 644 device/etc/systemd/logind.conf.d/mcping.conf /etc/systemd/logind.conf.d/mcping.conf
 ```
 
-This stops the power button and sleep from shutting the node down. It takes effect after a reboot.
+This stops the power button and sleep from shutting the device down. It takes effect after a reboot.
 
 ## 5. The token
 The token controls access. Make it long and random, and keep it private.
@@ -72,7 +72,7 @@ Optional settings go in the same file, one `NAME=value` per line. The useful one
 | `MCPING_CAPTURE_CONTRAST`, `MCPING_CAPTURE_BRIGHTNESS` | capture card tuning | tuned for the tested card |
 | `MCPING_SINGLE_CLIENT` | one client at a time (`0` turns it off) | `1` |
 | `MCPING_SESSION_IDLE` | seconds of silence before another client may connect | `300` |
-| `MCPING_MONITOR_LOCAL_OPEN` | `1` skips the monitor sign-in for a browser on the node itself | `0` |
+| `MCPING_MONITOR_LOCAL_OPEN` | `1` skips the monitor sign-in for a browser on the device itself | `0` |
 | `MCPING_IDLE_REFRESH` | seconds between background frame grabs while a monitor page is open (`0` is off) | `10` |
 
 ## 6. Certificate folder and services
@@ -81,8 +81,8 @@ The server creates a small certificate authority (CA) and a server certificate o
 ```bash
 sudo mkdir -p /var/lib/mcping/tls
 sudo chown -R mcping:mcping /var/lib/mcping && sudo chmod 750 /var/lib/mcping/tls
-sudo install -m 644 ~/mcping/node/systemd/mcping.service /etc/systemd/system/
-sudo install -m 644 ~/mcping/node/systemd/mcping-portal.service /etc/systemd/system/
+sudo install -m 644 ~/mcping/device/systemd/mcping.service /etc/systemd/system/
+sudo install -m 644 ~/mcping/device/systemd/mcping-portal.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable --now mcping mcping-portal
 systemctl status mcping --no-pager
@@ -93,23 +93,23 @@ curl -sk https://localhost:8765/health            # {"ok":true,"service":"mcping
 The services listen on all network interfaces: port **8765** (MCP) and **443** (setup pages).
 **Do not expose either to the internet.** See [SECURITY.md](../SECURITY.md).
 
-## 7. Desktop launchers (optional, for a node with a screen)
+## 7. Desktop launchers (optional, for a device with a screen)
 ```bash
-install -D -m 755 node/share/mcping-certificate.desktop ~/.local/share/applications/mcping-certificate.desktop
-install -m 755 node/share/mcping-connect.desktop ~/.local/share/applications/mcping-connect.desktop
-install -m 755 node/share/mcping-monitor.desktop ~/.local/share/applications/mcping-monitor.desktop
-install -m 755 node/share/mcping-setup-pages.desktop ~/.local/share/applications/mcping-setup-pages.desktop
+install -D -m 755 device/share/mcping-certificate.desktop ~/.local/share/applications/mcping-certificate.desktop
+install -m 755 device/share/mcping-connect.desktop ~/.local/share/applications/mcping-connect.desktop
+install -m 755 device/share/mcping-monitor.desktop ~/.local/share/applications/mcping-monitor.desktop
+install -m 755 device/share/mcping-setup-pages.desktop ~/.local/share/applications/mcping-setup-pages.desktop
 ```
 
 They give you **MCPing Certificate** (renew and export the CA), **MCPing Connect** (invites and the
 list of computers with access), and the live monitor.
 
-## 8. Back up the secrets, away from the node and never in git
+## 8. Back up the secrets, away from the device and never in git
 - the token line from `/etc/mcping/mcping.env`
 - `/var/lib/mcping/tls/ca.key` and `ca.crt`
 - `/var/lib/mcping/clients.json` and `invites.json`, if you use per-computer tokens
 
-If the node is lost without a backup you must create a new token and CA and set up every client again.
+If the device is lost without a backup you must create a new token and CA and set up every client again.
 
 ## 9. Updating
 Replace the code, then `sudo systemctl restart mcping mcping-portal`. Reinstall only if

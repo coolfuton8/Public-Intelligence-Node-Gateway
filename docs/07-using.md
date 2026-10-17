@@ -35,7 +35,7 @@
 |---|---|
 | `wait` | pause |
 | `abort` | release everything held, immediately |
-| `status` | node health: service, ESP32 link, target USB link, capture card, HDMI signal |
+| `status` | device health: service, ESP32 link, target USB link, capture card, HDMI signal |
 
 Models that can read images can use the image tools. Models that cannot should use `describe_screen`
 and the element tools.
@@ -76,7 +76,7 @@ These are one author's measurements on small samples, not a benchmark:
   read as text but windows and controls are often not recognised.
 - Small text under about 10 pixels and short words on low-contrast buttons are misread.
 - Typing assumes a US layout on the target.
-- Only one client can drive the node at a time; a second is refused until the first disconnects or has
+- Only one client can drive the device at a time; a second is refused until the first disconnects or has
   been idle for 5 minutes.
 
 ## Settings that change reading
