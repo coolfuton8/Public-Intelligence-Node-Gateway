@@ -12,6 +12,8 @@ A small Linux computer, an HDMI capture card and an ESP32-S3 board let an AI mod
 another computer with nothing installed on it**, through a network MCP server. Models that cannot read
 images get a plain-text description of the screen.
 
+![Diagram: the MCPing device (a laptop) connects to the capture card (USB 3.0) and the ESP32-S3 board (UART port). The target's HDMI output goes to the capture card's HDMI input, the card's HDMI output goes to an optional monitor, and the ESP32's USB port goes to the target.](docs/images/system-connections.svg)
+
 ## Documents
 
 | Read | What it covers |
