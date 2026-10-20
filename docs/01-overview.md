@@ -17,12 +17,10 @@ the *target*:
 - **Text-only models:** a model that cannot read images gets a plain-text description of the screen,
   made without any AI (OpenCV plus Tesseract OCR).
 
-```
- MCP client (an AI app) ──HTTPS + token──> MCPing (Linux) ──USB──> capture card <── HDMI ── TARGET
-                                             │                                     │
-                                             └──USB (serial)──> ESP32-S3 ──USB────┘ (keyboard + mouse)
-                                                         monitor <── loop-out ── capture card
-```
+![Diagram: the MCPing device connects to the capture card and to the ESP32-S3 board; the target's HDMI goes into the card, and the ESP32 acts as the target's keyboard and mouse](images/system-connections.svg)
+
+An AI app (the MCP client) reaches the device over HTTPS with a token. The full cabling is described in
+[Build](03-build.md).
 
 ## What it is good for
 Lawful, supervised work on computers you own or are allowed to control: IT support, setting up or
@@ -31,26 +29,38 @@ testing machines, accessibility, and research. See the acceptable use rules in
 
 ## What it cannot do
 - It only sees what the target sends over HDMI. Content protected by HDCP appears black.
-- It has no access to the target's files, network or processes. Everything goes through the screen,
-  keyboard and mouse.
+- It reaches the target only through its screen, keyboard and mouse, but through those it can do anything
+  a person at the keyboard could: open files, change settings, send data or spend money. To the target it is
+  an ordinary USB keyboard and mouse.
 - Reading text is imperfect. Small, dark or low-contrast text is often misread. A model should check
   important details with a screenshot or zoom.
 - Typing assumes a US keyboard layout on the target.
 - Only one client can drive the device at a time.
-- The software has been tested on one Linux target and one Windows-style test fixture. Behaviour on
-  other systems, and in a BIOS, is unknown.
+- Controlling a target was tested with one Linux computer. Reading the screen was tested on Linux
+  screenshots and on a generated Windows test dialog. A real Windows target, a Mac and a BIOS or boot menu
+  have **not** been tested, so behaviour there is unknown.
 
 ## Status
-Experimental. The software was written with AI assistance, has not been independently reviewed, and
-the build instructions in this repository have **not yet been verified end to end** on a fresh
-machine. Pages say what is and is not tested.
+Experimental. The software was written entirely with AI assistance ("vibe coded") and has not been
+independently reviewed or security-audited. The build instructions and both installer scripts have
+**not yet been verified end to end** on a fresh machine. Each page says what is and is not tested. A
+Claude Code setup skill is included (see the [README](../README.md)); it is as untested as the rest.
 
 ## Similar projects
-If you want a mature product for remote keyboard, video and mouse control by a human, look at
-PiKVM, JetKVM and similar network KVMs. This project differs in that the client is an MCP-speaking AI
-model and in the text description of the screen.
+For real work, use an established network KVM such as PiKVM or JetKVM. They are built for a human
+operator and are not replaced by this project. What differs here is that the client is an MCP-speaking AI
+model, and that models that cannot read images get a text description of the screen.
 
 ## Reading order
-1. [Parts](02-parts.md) 2. [Build](03-build.md) 3. [Device setup](04-device-setup.md)
-4. [Firmware](05-firmware.md) 5. [Connect a client](06-connect.md) 6. [Using it](07-using.md)
-7. [Troubleshooting](troubleshooting.md) 8. [SECURITY.md](../SECURITY.md)
+Read these two first, before building or connecting anything:
+- [DISCLAIMER.md](../DISCLAIMER.md): authorised use, ethics, no warranty.
+- [SECURITY.md](../SECURITY.md): what the token can do, and never exposing the device to the internet.
+
+Then, in order (the numbers match the page titles):
+2. [Parts](02-parts.md)
+3. [Build](03-build.md)
+4. [Device setup](04-device-setup.md) (includes the untested installer script)
+5. [Firmware](05-firmware.md)
+6. [Connect a client](06-connect.md)
+7. [Using it](07-using.md)
+8. [Troubleshooting](troubleshooting.md)
